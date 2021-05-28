@@ -172,16 +172,28 @@ describe('controller', function () {
 
     it('should update the view', function () {
       // TODO: write test
+      var todo = [{ id: 42, title: 'my todo', completed: false }, { id: 41, title: 'my to', completed: false }]
+      setUpModel(todo)
       subject.setView('')
       view.trigger('toggleAll', { completed: true })
-      expect(view.render).toHaveBeenCalledWith('toggleAll', { completed: true })
+      expect(view.render).toHaveBeenCalledWith('elementComplete', {
+        id: 42,
+        completed: true
+      })
+      expect(view.render).toHaveBeenCalledWith('elementComplete', {
+        id: 41,
+        completed: true
+      })
     })
   })
 
   describe('new todo', function () {
     it('should add a new todo to the model', function () {
       // TODO: write test - Check if model.create has been called.
-
+      setUpModel([])
+      subject.setView('')
+      view.trigger('newTodo', 'get bread')
+      expect(model.create).toHaveBeenCalledWith('get bread', jasmine.any(Function))
     })
 
     it('should add a new todo to the view', function () {
@@ -222,6 +234,11 @@ describe('controller', function () {
   describe('element removal', function () {
     it('should remove an entry from the model', function () {
       // TODO: write test
+      var todo = { id: 42, title: 'my todo', completed: true }
+      setUpModel([todo])
+      subject.setView('')
+      view.trigger('itemRemove', { id: 42 })
+      expect(model.remove).toHaveBeenCalledWith(42, jasmine.any(Function))
     })
 
     it('should remove an entry from the view', function () {
