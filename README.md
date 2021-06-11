@@ -1,7 +1,7 @@
 [Documentation](https://chrisayo.github.io/Project8/docs "Documentation")
 ### How to get started
 
-Run npm Install on the project in order to install the requisite Jasmine materials.
+Run npm Install on the project in order to install the requisite Jasmine materials
 
 Open Index.html to start the application .
 
