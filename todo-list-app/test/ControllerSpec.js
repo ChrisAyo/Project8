@@ -87,19 +87,16 @@ describe('controller', function () {
       // TODO: write test
       var todo = { title: 'my todo', completed: false }
       setUpModel([todo])
-	  subject.setView('#/active')
-
-	  expect(view.render).toHaveBeenCalledWith('showEntries', [todo])
-	  expect(model.read).toHaveBeenCalledWith({ completed: false }, jasmine.any(Function))
+	    subject.setView('#/active')
+	    expect(view.render).toHaveBeenCalledWith('showEntries', [todo])
+	    expect(model.read).toHaveBeenCalledWith({ completed: false }, jasmine.any(Function))
     })
 
     it('should show completed entries', function () {
       // TODO: write test
-      // TODO: write test - Look at this again and find out why the filter is not working.
 	    var completedTodo = { title: 'my todo', completed: true }
       setUpModel([completedTodo])
       subject.setView('#/completed')
-      //   expect(view.render).toHaveBeenCalledWith('updateElementCount', 1)
       expect(view.render).toHaveBeenCalledWith('showEntries', [completedTodo])
       expect(model.read).toHaveBeenCalledWith({ completed: true }, jasmine.any(Function))
     })
@@ -148,18 +145,21 @@ describe('controller', function () {
   })
 
   it('should highlight "All" filter by default', function () {
+     // TODO: write test
     setUpModel([])
     subject.setView('')
     expect(view.render).toHaveBeenCalledWith('setFilter', '')
   })
 
   it('should highlight "Active" filter when switching to active view', function () {
+     // TODO: write test
     setUpModel([])
     subject.setView('#/active')
     expect(view.render).toHaveBeenCalledWith('setFilter', 'active')
   })
 
   describe('toggle all', function () {
+     // TODO: write test
     it('should toggle all todos to completed', function () {
       var todo = [{ id: 42, title: 'my todo', completed: false }, { id: 41, title: 'my to', completed: false }]
       setUpModel(todo)
@@ -189,7 +189,7 @@ describe('controller', function () {
 
   describe('new todo', function () {
     it('should add a new todo to the model', function () {
-      // TODO: write test - Check if model.create has been called.
+      // TODO: write test
       setUpModel([])
       subject.setView('')
       view.trigger('newTodo', 'get bread')

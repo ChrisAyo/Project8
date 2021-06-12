@@ -94,7 +94,6 @@
 					break;
 				}
 			}
-
 			localStorage[this._dbName] = JSON.stringify(data);
 			callback.call(this, todos);
 		} else {
