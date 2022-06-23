@@ -1,4 +1,7 @@
 [Technical Documentation](https://chrisayo.github.io/Project8/docs "Documentation")
+
+Enhancing an Existing Project
+
 ### How to get started
 
 Run npm Install on the project in order to install the requisite Jasmine materials
